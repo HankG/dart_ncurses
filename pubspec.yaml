@@ -1,0 +1,135 @@
+name: ncurses
+description: Bindings to NCurses for Dart.
+version: 0.1.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies: 
+  ffi: ^2.0.1
+
+dev_dependencies:
+  ffigen: ^7.2.4
+  lints: ^2.0.0
+  test: ^1.21.0
+
+ffigen:
+  output: lib/src/bindings.g.dart
+  name: NCursesLibrary
+  description: Generated bindings for the ncurses library.
+
+  preamble: |
+    // ignore_for_file: no_leading_underscores_for_local_identifiers, non_constant_identifier_names, constant_identifier_names, unused_element, camel_case_types, unused_field
+
+  headers:
+    entry-points:
+      - /usr/include/curses.h
+    include-directives:
+      - /usr/include/curses.h
+      # We need stdout and stdin
+      - /usr/include/stdio.h
+
+  functions:
+    exclude:
+      # These functions use varargs, so we can't use them
+      - vwprintw
+      - vw_printw
+      - vwscanw
+      - vw_scanw
+
+      # We included stdio for stdout and stdin, but we aren't here to be an stdio wrapper
+      # Remove all functions from stdio
+      - remove
+      - rename
+      - renameat
+      - fclose
+      - tmpfile
+      - tmpnam
+      - tmpnam_r
+      - tempnam
+      - fflush
+      - fflush_unlocked
+      - fopen
+      - freopen
+      - fdopen
+      - fmemopen
+      - open_memstream
+      - setbuf
+      - setvbuf
+      - setbuffer
+      - setlinebuf
+      - fprintf
+      - printf
+      - sprintf
+      - vfprintf
+      - vprintf
+      - vsprintf
+      - snprintf
+      - vsnprintf
+      - vdprintf
+      - dprintf
+      - fscanf
+      - scanf
+      - sscanf
+      - vfscanf
+      - vscanf
+      - vsscanf
+      - fgetc
+      - getc
+      - getchar
+      - getc_unlocked
+      - getchar_unlocked
+      - fgetc_unlocked
+      - fputc
+      - putc
+      - putchar
+      - fputc_unlocked
+      - putc_unlocked
+      - putchar_unlocked
+      - getw
+      - putw
+      - fgets
+      - __getdelim
+      - getdelim
+      - getline
+      - fputs
+      - puts
+      - ungetc
+      - fread
+      - fwrite
+      - fread_unlocked
+      - fwrite_unlocked
+      - fseek
+      - ftell
+      - rewind
+      - fseeko
+      - ftello
+      - fgetpos
+      - fsetpos
+      - clearerr
+      - feof
+      - ferror
+      - clearerr_unlocked
+      - feof_unlocked
+      - ferror_unlocked
+      - perror
+      - fileno
+      - fileno_unlocked
+      - pclose
+      - popen
+      - ctermid
+      - flockfile
+      - ftrylockfile
+      - funlockfile
+      - __uflow
+      - __overflow
+
+    symbol-address:
+      include:
+        - delscreen
+        - delwin
+
+  compiler-opts:
+    - '-I/usr/lib/clang/14.0.6/include'
+    - '-DNCURSES_WIDECHAR'
