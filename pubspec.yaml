@@ -1,7 +1,7 @@
 name: ncurses
 description: Bindings to NCurses for Dart.
 version: 0.1.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/abitofevrything/dart_ncurses
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
