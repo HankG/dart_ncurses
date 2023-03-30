@@ -12,7 +12,7 @@ String get defaultLibraryPath {
   } else if (Platform.isMacOS) {
     return 'libncursesw.dylib';
   } else {
-    return 'libncursesw.so';
+    return 'libncursesw.so.6';
   }
 }
 
@@ -85,7 +85,8 @@ class Attributes {
   static const normal = Attributes._fromValue(bindings.WA_NORMAL);
 
   final int _value;
-  const Attributes._fromValue(int value) : _value = value & bindings.WA_ATTRIBUTES;
+  const Attributes._fromValue(int value)
+      : _value = value & bindings.WA_ATTRIBUTES;
 
   static const values = [
     altCharSet,
@@ -139,7 +140,8 @@ class Attributes {
   bool operator ==(Object other) =>
       identical(this, other) || (other is Attributes && other._value == _value);
 
-  Attributes operator |(Attributes other) => Attributes._fromValue(_value | other._value);
+  Attributes operator |(Attributes other) =>
+      Attributes._fromValue(_value | other._value);
 }
 
 /// Color-related constants.
@@ -156,13 +158,15 @@ enum Colors {
   final int _value;
   const Colors._(this._value);
 
-  factory Colors._fromValue(int value) => values.singleWhere((element) => element._value == value);
+  factory Colors._fromValue(int value) =>
+      values.singleWhere((element) => element._value == value);
 }
 
 /// Constants representing key values.
 class Key {
   /// Break key.
-  static const breakKey = Key._fromValue(bindings.KEY_BREAK, isFunctionKey: true);
+  static const breakKey =
+      Key._fromValue(bindings.KEY_BREAK, isFunctionKey: true);
 
   /// Down arrow key.
   static const down = Key._fromValue(bindings.KEY_DOWN, isFunctionKey: true);
@@ -180,7 +184,8 @@ class Key {
   static const home = Key._fromValue(bindings.KEY_HOME, isFunctionKey: true);
 
   /// Backspace.
-  static const backspace = Key._fromValue(bindings.KEY_BACKSPACE, isFunctionKey: true);
+  static const backspace =
+      Key._fromValue(bindings.KEY_BACKSPACE, isFunctionKey: true);
 
   /// 0th function key.
   static const f0 = Key._fromValue(bindings.KEY_F0, isFunctionKey: true);
@@ -273,7 +278,8 @@ class Key {
   static const enter = Key._fromValue(bindings.KEY_ENTER, isFunctionKey: true);
 
   /// Soft (partial) reset.
-  static const sreset = Key._fromValue(bindings.KEY_SRESET, isFunctionKey: true);
+  static const sreset =
+      Key._fromValue(bindings.KEY_SRESET, isFunctionKey: true);
 
   /// Reset or hard reset.
   static const reset = Key._fromValue(bindings.KEY_RESET, isFunctionKey: true);
@@ -341,19 +347,22 @@ class Key {
   static const beg = Key._fromValue(bindings.KEY_BEG, isFunctionKey: true);
 
   /// Cancel key
-  static const cancel = Key._fromValue(bindings.KEY_CANCEL, isFunctionKey: true);
+  static const cancel =
+      Key._fromValue(bindings.KEY_CANCEL, isFunctionKey: true);
 
   /// Close key
   static const close = Key._fromValue(bindings.KEY_CLOSE, isFunctionKey: true);
 
   /// Cmd (command) key
-  static const command = Key._fromValue(bindings.KEY_COMMAND, isFunctionKey: true);
+  static const command =
+      Key._fromValue(bindings.KEY_COMMAND, isFunctionKey: true);
 
   /// Copy key
   static const copy = Key._fromValue(bindings.KEY_COPY, isFunctionKey: true);
 
   /// Create key
-  static const create = Key._fromValue(bindings.KEY_CREATE, isFunctionKey: true);
+  static const create =
+      Key._fromValue(bindings.KEY_CREATE, isFunctionKey: true);
 
   /// End key
   static const end = Key._fromValue(bindings.KEY_END, isFunctionKey: true);
@@ -371,7 +380,8 @@ class Key {
   static const mark = Key._fromValue(bindings.KEY_MARK, isFunctionKey: true);
 
   /// Message key
-  static const message = Key._fromValue(bindings.KEY_MESSAGE, isFunctionKey: true);
+  static const message =
+      Key._fromValue(bindings.KEY_MESSAGE, isFunctionKey: true);
 
   /// Move key
   static const move = Key._fromValue(bindings.KEY_MOVE, isFunctionKey: true);
@@ -383,28 +393,35 @@ class Key {
   static const open = Key._fromValue(bindings.KEY_OPEN, isFunctionKey: true);
 
   /// Options key
-  static const options = Key._fromValue(bindings.KEY_OPTIONS, isFunctionKey: true);
+  static const options =
+      Key._fromValue(bindings.KEY_OPTIONS, isFunctionKey: true);
 
   /// Previous object key
-  static const previous = Key._fromValue(bindings.KEY_PREVIOUS, isFunctionKey: true);
+  static const previous =
+      Key._fromValue(bindings.KEY_PREVIOUS, isFunctionKey: true);
 
   /// Redo key
   static const redo = Key._fromValue(bindings.KEY_REDO, isFunctionKey: true);
 
   /// Reference key
-  static const reference = Key._fromValue(bindings.KEY_REFERENCE, isFunctionKey: true);
+  static const reference =
+      Key._fromValue(bindings.KEY_REFERENCE, isFunctionKey: true);
 
   /// Refresh key
-  static const refresh = Key._fromValue(bindings.KEY_REFRESH, isFunctionKey: true);
+  static const refresh =
+      Key._fromValue(bindings.KEY_REFRESH, isFunctionKey: true);
 
   /// Replace key
-  static const replace = Key._fromValue(bindings.KEY_REPLACE, isFunctionKey: true);
+  static const replace =
+      Key._fromValue(bindings.KEY_REPLACE, isFunctionKey: true);
 
   /// Restart key
-  static const restart = Key._fromValue(bindings.KEY_RESTART, isFunctionKey: true);
+  static const restart =
+      Key._fromValue(bindings.KEY_RESTART, isFunctionKey: true);
 
   /// Resume key
-  static const resume = Key._fromValue(bindings.KEY_RESUME, isFunctionKey: true);
+  static const resume =
+      Key._fromValue(bindings.KEY_RESUME, isFunctionKey: true);
 
   /// Save key
   static const save = Key._fromValue(bindings.KEY_SAVE, isFunctionKey: true);
@@ -413,16 +430,19 @@ class Key {
   static const sbeg = Key._fromValue(bindings.KEY_SBEG, isFunctionKey: true);
 
   /// Shifted cancel key
-  static const scancel = Key._fromValue(bindings.KEY_SCANCEL, isFunctionKey: true);
+  static const scancel =
+      Key._fromValue(bindings.KEY_SCANCEL, isFunctionKey: true);
 
   /// Shifted command key
-  static const scommand = Key._fromValue(bindings.KEY_SCOMMAND, isFunctionKey: true);
+  static const scommand =
+      Key._fromValue(bindings.KEY_SCOMMAND, isFunctionKey: true);
 
   /// Shifted copy key
   static const scopy = Key._fromValue(bindings.KEY_SCOPY, isFunctionKey: true);
 
   /// Shifted create key
-  static const screate = Key._fromValue(bindings.KEY_SCREATE, isFunctionKey: true);
+  static const screate =
+      Key._fromValue(bindings.KEY_SCREATE, isFunctionKey: true);
 
   /// Shifted delete char key
   static const sdc = Key._fromValue(bindings.KEY_SDC, isFunctionKey: true);
@@ -431,7 +451,8 @@ class Key {
   static const sdl = Key._fromValue(bindings.KEY_SDL, isFunctionKey: true);
 
   /// Select key
-  static const select = Key._fromValue(bindings.KEY_SELECT, isFunctionKey: true);
+  static const select =
+      Key._fromValue(bindings.KEY_SELECT, isFunctionKey: true);
 
   /// Shifted end key
   static const send = Key._fromValue(bindings.KEY_SEND, isFunctionKey: true);
@@ -458,7 +479,8 @@ class Key {
   static const sleft = Key._fromValue(bindings.KEY_SLEFT, isFunctionKey: true);
 
   /// Shifted message key
-  static const smessage = Key._fromValue(bindings.KEY_SMESSAGE, isFunctionKey: true);
+  static const smessage =
+      Key._fromValue(bindings.KEY_SMESSAGE, isFunctionKey: true);
 
   /// Shifted move key
   static const smove = Key._fromValue(bindings.KEY_SMOVE, isFunctionKey: true);
@@ -467,37 +489,45 @@ class Key {
   static const snext = Key._fromValue(bindings.KEY_SNEXT, isFunctionKey: true);
 
   /// Shifted options key
-  static const soptions = Key._fromValue(bindings.KEY_SOPTIONS, isFunctionKey: true);
+  static const soptions =
+      Key._fromValue(bindings.KEY_SOPTIONS, isFunctionKey: true);
 
   /// Shifted prev key
-  static const sprevious = Key._fromValue(bindings.KEY_SPREVIOUS, isFunctionKey: true);
+  static const sprevious =
+      Key._fromValue(bindings.KEY_SPREVIOUS, isFunctionKey: true);
 
   /// Shifted print key
-  static const sprint = Key._fromValue(bindings.KEY_SPRINT, isFunctionKey: true);
+  static const sprint =
+      Key._fromValue(bindings.KEY_SPRINT, isFunctionKey: true);
 
   /// Shifted redo key
   static const sredo = Key._fromValue(bindings.KEY_SREDO, isFunctionKey: true);
 
   /// Shifted replace key
-  static const sreplace = Key._fromValue(bindings.KEY_SREPLACE, isFunctionKey: true);
+  static const sreplace =
+      Key._fromValue(bindings.KEY_SREPLACE, isFunctionKey: true);
 
   /// Shifted right arrow
-  static const sright = Key._fromValue(bindings.KEY_SRIGHT, isFunctionKey: true);
+  static const sright =
+      Key._fromValue(bindings.KEY_SRIGHT, isFunctionKey: true);
 
   /// Shifted resume key
-  static const srsume = Key._fromValue(bindings.KEY_SRSUME, isFunctionKey: true);
+  static const srsume =
+      Key._fromValue(bindings.KEY_SRSUME, isFunctionKey: true);
 
   /// Shifted save key
   static const ssave = Key._fromValue(bindings.KEY_SSAVE, isFunctionKey: true);
 
   /// Shifted suspend key
-  static const ssuspend = Key._fromValue(bindings.KEY_SSUSPEND, isFunctionKey: true);
+  static const ssuspend =
+      Key._fromValue(bindings.KEY_SSUSPEND, isFunctionKey: true);
 
   /// Shifted undo key
   static const sundo = Key._fromValue(bindings.KEY_SUNDO, isFunctionKey: true);
 
   /// Suspend key
-  static const suspend = Key._fromValue(bindings.KEY_SUSPEND, isFunctionKey: true);
+  static const suspend =
+      Key._fromValue(bindings.KEY_SUSPEND, isFunctionKey: true);
 
   /// Undo key
   static const undo = Key._fromValue(bindings.KEY_UNDO, isFunctionKey: true);
@@ -520,7 +550,9 @@ class Key {
   /// A string whose value describes this key.
   String? get name {
     try {
-      return wrap('name', () => defaultLibrary.key_name(_value)).cast<Utf8>().toDartString();
+      return wrap('name', () => defaultLibrary.key_name(_value))
+          .cast<Utf8>()
+          .toDartString();
     } on NCursesException {
       return null;
     }
@@ -532,7 +564,9 @@ class Key {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      (other is Key && other._value == _value && other.isFunctionKey == isFunctionKey);
+      (other is Key &&
+          other._value == _value &&
+          other.isFunctionKey == isFunctionKey);
 }
 
 /// The visibility of a cursor.
@@ -639,7 +673,8 @@ int get columns => defaultLibrary.COLS;
 /// If the terminfo capabilities smm (meta_on) and rmm (meta_off) are defined for
 /// the terminal, smm is sent to the terminal when `meta = true` is called and rmm is sent when
 /// `meta = false` is called.
-set meta(bool value) => wrap('meta=', () => defaultLibrary.meta(nullptr, value));
+set meta(bool value) =>
+    wrap('meta=', () => defaultLibrary.meta(nullptr, value));
 
 /// Controls the currently active screen.
 ///
@@ -683,7 +718,8 @@ void dumpScreen(String filename) => wrap<int>('dumpScreen', () {
 Screen setTerm(Screen newScreen) {
   final previousWindow = Window.stdscr;
   return Screen._fromPointer(
-      wrap('setTerm', () => defaultLibrary.set_term(newScreen._native)), previousWindow);
+      wrap('setTerm', () => defaultLibrary.set_term(newScreen._native)),
+      previousWindow);
 }
 
 // =======================================
@@ -728,14 +764,16 @@ class Char implements Finalizable {
   // TODO: Using a dart function as the finalizer target breaks stuff
   static void _freeMemory(Pointer<Void> memory) => malloc.free(memory);
   static final _finalizer = NativeFinalizer(
-    Pointer.fromFunction<Void Function(Pointer<NativeType>)>(_freeMemory).cast(),
+    Pointer.fromFunction<Void Function(Pointer<NativeType>)>(_freeMemory)
+        .cast(),
   );
 
   void _attachFinalizer() => _finalizer.attach(this, _native.cast(),
       detach: this, externalSize: sizeOf<bindings.cchar_t>());
 
   /// The number of wide characters in this [Char].
-  int get length => defaultLibrary.getcchar(_native, nullptr, nullptr, nullptr, nullptr);
+  int get length =>
+      defaultLibrary.getcchar(_native, nullptr, nullptr, nullptr, nullptr);
 
   List<dynamic> _values() {
     late List<dynamic> values;
@@ -820,7 +858,8 @@ class Screen implements Finalizable {
     return screen;
   }
 
-  static final _finalizer = NativeFinalizer(defaultLibrary.addresses.delscreen.cast());
+  static final _finalizer =
+      NativeFinalizer(defaultLibrary.addresses.delscreen.cast());
 
   /// The output speed of the terminal in bits per second.
   int get baudrate => defaultLibrary.baudrate_sp(_native);
@@ -859,7 +898,8 @@ class Screen implements Finalizable {
   /// Sets the appearance of the cursor based on [visibility].
   ///
   /// See [setCursorVisibility] for details.
-  set cursorVisibility(CursorVisibility visibility) => setCursorVisibility(visibility);
+  set cursorVisibility(CursorVisibility visibility) =>
+      setCursorVisibility(visibility);
 
   /// Control Echo mode.
   ///
@@ -880,8 +920,8 @@ class Screen implements Finalizable {
   /// [duration] must satisfy `.1s <= duration <= 25.5s`
   set halfDelay(Duration duration) => wrap(
         'halfDelay=',
-        () => defaultLibrary.halfdelay_sp(
-            _native, duration.inMilliseconds ~/ (Duration.millisecondsPerSecond / 10)),
+        () => defaultLibrary.halfdelay_sp(_native,
+            duration.inMilliseconds ~/ (Duration.millisecondsPerSecond / 10)),
       );
 
   /// Whether the terminal has insert- and delete-character capabilities.
@@ -931,8 +971,8 @@ class Screen implements Finalizable {
   /// of [value] is `false` then no flushing of the buffer will occur when an interrupt key is pressed.
   ///
   /// The default for the option is inherited from the display driver settings.
-  set flushOnInterrupt(bool value) =>
-      wrap('flushOnInterrupt=', () => defaultLibrary.intrflush_sp(_native, nullptr, value));
+  set flushOnInterrupt(bool value) => wrap('flushOnInterrupt=',
+      () => defaultLibrary.intrflush_sp(_native, nullptr, value));
 
   /// Whether the screen has been refreshed since the last call to [endWin].
   bool get isEndWindow => defaultLibrary.isendwin_sp(_native);
@@ -943,7 +983,9 @@ class Screen implements Finalizable {
   ///
   /// It is defined only after the call to [initScreen] or [newTerm].
   String get longName =>
-      wrap('longName', () => defaultLibrary.longname_sp(_native)).cast<Utf8>().toDartString();
+      wrap('longName', () => defaultLibrary.longname_sp(_native))
+          .cast<Utf8>()
+          .toDartString();
 
   /// Control whether carriage returns are translated to newlines on input.
   set newlineMode(bool value) {
@@ -965,10 +1007,12 @@ class Screen implements Finalizable {
   }
 
   /// Obtain the terminal name as recorded by [setupTerm].
-  String get termName => defaultLibrary.termname_sp(_native).cast<Utf8>().toDartString();
+  String get termName =>
+      defaultLibrary.termname_sp(_native).cast<Utf8>().toDartString();
 
   /// Extract the video attributes of the current terminal which is supported by the [Char] data type.
-  Attributes get termAttrs => Attributes._fromValue(defaultLibrary.term_attrs_sp(_native));
+  Attributes get termAttrs =>
+      Attributes._fromValue(defaultLibrary.term_attrs_sp(_native));
 
   /// Specify the technique by which the implementation determines the size of the screen.
   ///
@@ -1001,21 +1045,25 @@ class Screen implements Finalizable {
   ///
   /// This function also restores the colours on the terminal to terminal-specific initial values.
   /// The initial background colour is assumed to be black for all terminals.
-  void startColor() => wrap('startColor', () => defaultLibrary.start_color_sp(_native));
+  void startColor() =>
+      wrap('startColor', () => defaultLibrary.start_color_sp(_native));
 
   /// Sets the appearance of the cursor based on the value of [visibility].
   ///
   /// If the terminal supports the cursor mode specified by [visibility], then this function returns
   /// the previous cursor state. Otherwise, this function throws.
-  CursorVisibility setCursorVisibility(CursorVisibility visibility) => CursorVisibility._fromValue(
-        wrap('setCursorVisibility', () => defaultLibrary.curs_set_sp(_native, visibility._value)),
+  CursorVisibility setCursorVisibility(CursorVisibility visibility) =>
+      CursorVisibility._fromValue(
+        wrap('setCursorVisibility',
+            () => defaultLibrary.curs_set_sp(_native, visibility._value)),
       );
 
   /// Saves the current terminal modes as the "program" (in Curses) state for use by
   /// [resetProgramMode].
   ///
   /// This functions affects the mode of the terminal associated with the current screen.
-  void saveProgramMode() => wrap('saveProgramMode', () => defaultLibrary.def_prog_mode_sp(_native));
+  void saveProgramMode() =>
+      wrap('saveProgramMode', () => defaultLibrary.def_prog_mode_sp(_native));
 
   /// Saves the current terminal modes as the "shell" (not in Curses) state for use by
   /// [resetShellMode].
@@ -1023,13 +1071,14 @@ class Screen implements Finalizable {
   /// This functions affects the mode of the terminal associated with the current screen.
   ///
   /// Applications normally do not need to refer to the shell terminal mode.
-  void saveShellMode() => wrap('saveShellMode', () => defaultLibrary.def_shell_mode_sp(_native));
+  void saveShellMode() =>
+      wrap('saveShellMode', () => defaultLibrary.def_shell_mode_sp(_native));
 
   /// Restores the terminal to the "program" (in Curses) state.
   ///
   /// This functions affects the mode of the terminal associated with the current screen.
-  void resetProgramMode() =>
-      wrap('resetProgramMode', () => defaultLibrary.reset_prog_mode_sp(_native));
+  void resetProgramMode() => wrap(
+      'resetProgramMode', () => defaultLibrary.reset_prog_mode_sp(_native));
 
   /// Restores the terminal to the "shell" (not in Curses) state.
   ///
@@ -1045,11 +1094,12 @@ class Screen implements Finalizable {
   ///
   /// Whether or not the terminal supports pad characters, this function is not a precise method of
   /// timekeeping.
-  void delayOutput(Duration duration) =>
-      wrap('delayOutput', () => defaultLibrary.delay_output_sp(_native, duration.inMilliseconds));
+  void delayOutput(Duration duration) => wrap('delayOutput',
+      () => defaultLibrary.delay_output_sp(_native, duration.inMilliseconds));
 
   /// Sends to the terminal the commands to perform any required changes.
-  void doUpdate() => wrap('doUpdate', () => defaultLibrary.doupdate_sp(_native));
+  void doUpdate() =>
+      wrap('doUpdate', () => defaultLibrary.doupdate_sp(_native));
 
   /// Restores the terminal after Curses activity by at least restoring the saved shell terminal mode,
   /// flushing any output to the terminal and moving the cursor to the first column of the last line
@@ -1081,7 +1131,8 @@ class Screen implements Finalizable {
   void flash() => wrap('flash', () => defaultLibrary.flash_sp(_native));
 
   /// Discards (flushes) any characters in the input buffer associated with the current screen.
-  void flushInput() => wrap('flushInput', () => defaultLibrary.flushinp_sp(_native));
+  void flushInput() =>
+      wrap('flushInput', () => defaultLibrary.flushinp_sp(_native));
 
 // TODO
 // Screen newTerminal(String type, FILE *outfile, FILE *infile) => Screen.fromPointer(wrap(() => defaultLibrary.newterm_sp(native, arg0, arg1, arg2)));
@@ -1108,8 +1159,8 @@ class Screen implements Finalizable {
 
   /// Takes at least [duration] to return.
   @Deprecated('Avoid using nap and prefer using await')
-  void nap(Duration duration) =>
-      wrap('nap', () => defaultLibrary.napms_sp(native, duration.inMilliseconds));
+  void nap(Duration duration) => wrap(
+      'nap', () => defaultLibrary.napms_sp(native, duration.inMilliseconds));
 
   /// Reserve a screen line for use by the application.
   ///
@@ -1203,8 +1254,10 @@ class Screen implements Finalizable {
   void ungetKey(Key key) =>
       wrap('ungetKey', () => defaultLibrary.unget_wch_sp(_native, key._value));
 
-  void setVideoAttributes(Attributes attributes, ColorPair colorPair) => wrap('setVideoAttributes',
-      () => defaultLibrary.vid_attr(attributes._value, colorPair._value, nullptr));
+  void setVideoAttributes(Attributes attributes, ColorPair colorPair) => wrap(
+      'setVideoAttributes',
+      () => defaultLibrary.vid_attr(
+          attributes._value, colorPair._value, nullptr));
 
   /// Redefine [color], on terminals that support the redefinition of colours, to have the red,
   /// green, and blue intensity components specified by [r], [g], and [b], respectively.
@@ -1213,8 +1266,8 @@ class Screen implements Finalizable {
   /// new definition.
   ///
   /// [r], [g] and [b] range from 0 to 1000.
-  void setColorValues(Colors color, int r, int g, int b) =>
-      wrap('setColorValues', () => defaultLibrary.init_color(color._value, r, g, b));
+  void setColorValues(Colors color, int r, int g, int b) => wrap(
+      'setColorValues', () => defaultLibrary.init_color(color._value, r, g, b));
 
   /// Identify the intensity components of [color].
   ///
@@ -1244,8 +1297,9 @@ class Screen implements Finalizable {
   ///
   /// Calling [setValues] changes any characters that were displayed in the colour pair's old
   /// definition to the new definition and refreshes the screen.
-  void setColorPairValues(ColorPair pair, Colors f, Colors b) =>
-      wrap('setColorPairValues', () => defaultLibrary.init_pair(pair._value, f._value, b._value));
+  void setColorPairValues(ColorPair pair, Colors f, Colors b) => wrap(
+      'setColorPairValues',
+      () => defaultLibrary.init_pair(pair._value, f._value, b._value));
 
   /// Retrieves the component colours of this colour-pair.
   ///
@@ -1275,8 +1329,8 @@ class Screen implements Finalizable {
   /// [dart_ncurses.lines] variable - if [cols] is zero, it defaults to `cols - begin_x` - where
   /// `cols` is the global [columns] variable.
   Window createWindow({required Position begin, int lines = 0, int cols = 0}) {
-    final ptr =
-        wrap('Window', () => defaultLibrary.newwin_sp(_native, lines, cols, begin.y, begin.x));
+    final ptr = wrap('Window',
+        () => defaultLibrary.newwin_sp(_native, lines, cols, begin.y, begin.x));
     return Window._fromPointer(ptr).._attachFinalizer();
   }
 
@@ -1285,7 +1339,8 @@ class Screen implements Finalizable {
   /// A pad is like a window, except that it is not necessarily associated with a viewable part of
   /// the screen. Automatic refreshes of pads do not occur.
   Window createPad({required int lines, required int cols}) {
-    final ptr = wrap('Window.pad', () => defaultLibrary.newpad_sp(_native, lines, cols));
+    final ptr = wrap(
+        'Window.pad', () => defaultLibrary.newpad_sp(_native, lines, cols));
     return Window._fromPointer(ptr).._attachFinalizer();
   }
 
@@ -1318,8 +1373,10 @@ class Window implements Finalizable {
     required int cols,
     required Position begin,
   }) {
-    final ptr = wrap('Window.subWindow',
-        () => defaultLibrary.subwin(origin._native, lines, cols, begin.y, begin.x));
+    final ptr = wrap(
+        'Window.subWindow',
+        () => defaultLibrary.subwin(
+            origin._native, lines, cols, begin.y, begin.x));
     return Window._fromPointer(ptr).._attachFinalizer();
   }
 
@@ -1331,8 +1388,10 @@ class Window implements Finalizable {
     required int cols,
     required Position begin,
   }) {
-    final ptr = wrap('Window.derWindow',
-        () => defaultLibrary.derwin(origin._native, lines, cols, begin.y, begin.x));
+    final ptr = wrap(
+        'Window.derWindow',
+        () => defaultLibrary.derwin(
+            origin._native, lines, cols, begin.y, begin.x));
     return Window._fromPointer(ptr).._attachFinalizer();
   }
 
@@ -1347,12 +1406,15 @@ class Window implements Finalizable {
     required int cols,
     required Position begin,
   }) {
-    final ptr = wrap('Window.subPad',
-        () => defaultLibrary.subpad(origin._native, lines, cols, begin.y, begin.x));
+    final ptr = wrap(
+        'Window.subPad',
+        () => defaultLibrary.subpad(
+            origin._native, lines, cols, begin.y, begin.x));
     return Window._fromPointer(ptr).._attachFinalizer();
   }
 
-  static final _finalizer = NativeFinalizer(defaultLibrary.addresses.delwin.cast());
+  static final _finalizer =
+      NativeFinalizer(defaultLibrary.addresses.delwin.cast());
   void _attachFinalizer() => _finalizer.attach(
         this,
         _native.cast(),
@@ -1397,8 +1459,8 @@ class Window implements Finalizable {
     return colorPair;
   }
 
-  set colorPair(ColorPair value) =>
-      wrap('colorPair=', () => defaultLibrary.wcolor_set(_native, value._value, nullptr));
+  set colorPair(ColorPair value) => wrap('colorPair=',
+      () => defaultLibrary.wcolor_set(_native, value._value, nullptr));
 
   /// This window's background character and rendition.
   Char get background {
@@ -1422,8 +1484,8 @@ class Window implements Finalizable {
   /// - The rendition of every character on the screen is changed to the new window rendition.
   /// - Wherever the former background character appears, it is changed to the new background
   ///   character.
-  set background(Char background) =>
-      wrap('backrgound=', () => defaultLibrary.wbkgrnd(_native, background._native));
+  set background(Char background) => wrap(
+      'backrgound=', () => defaultLibrary.wbkgrnd(_native, background._native));
 
   /// Set whether the next refresh redraws the entire screen.
   ///
@@ -1433,7 +1495,8 @@ class Window implements Finalizable {
   /// `false` in this window.
   ///
   /// The initial state is unspecified.
-  set clearOk(bool value) => wrap('clearOk=', () => defaultLibrary.clearok(_native, value));
+  set clearOk(bool value) =>
+      wrap('clearOk=', () => defaultLibrary.clearok(_native, value));
 
   /// Specifies whether the implementation may use the hardware insert-line, delete-line, and scroll
   /// features of terminals so equipped.
@@ -1442,8 +1505,8 @@ class Window implements Finalizable {
   /// is disabled and lines are instead redrawn as required.
   ///
   /// The initial state is `false`.
-  set allowInsertDeleteLine(bool value) =>
-      wrap('allowInsertDeleteLine=', () => defaultLibrary.idlok(_native, value));
+  set allowInsertDeleteLine(bool value) => wrap(
+      'allowInsertDeleteLine=', () => defaultLibrary.idlok(_native, value));
 
   /// Controls the cursor position after a refresh operation.
   ///
@@ -1452,7 +1515,8 @@ class Window implements Finalizable {
   /// terminal's cursor is positioned at the cursor position contained in this window.
   ///
   /// The initial state is `false`.
-  set leaveCursor(bool value) => wrap('leaveCursor=', () => defaultLibrary.leaveok(_native, value));
+  set leaveCursor(bool value) =>
+      wrap('leaveCursor=', () => defaultLibrary.leaveok(_native, value));
 
   /// Controls the use of scrolling.
   ///
@@ -1469,7 +1533,8 @@ class Window implements Finalizable {
   ///
   /// If [value] is `true`, use of these features in this window is enabled. If [value] is `false`, use
   /// of these features in this window is disabled. The initial state is `true`.
-  set allowInsertDeleteCharacters(bool value) => defaultLibrary.idcok(_native, value);
+  set allowInsertDeleteCharacters(bool value) =>
+      defaultLibrary.idcok(_native, value);
 
   /// Specifies whether the screen is refreshed whenever this window is changed.
   ///
@@ -1493,14 +1558,16 @@ class Window implements Finalizable {
   /// function key is pressed, then after keypad translation is first enabled, the implementation
   /// transmits this command to the terminal before an affected input function tries to read any
   /// characters from that terminal.
-  set keypad(bool value) => wrap('keypad=', () => defaultLibrary.keypad(_native, value));
+  set keypad(bool value) =>
+      wrap('keypad=', () => defaultLibrary.keypad(_native, value));
 
   /// Whether Delay Mode or No Delay Mode is in effect for the screen associated with this
   /// window.
   ///
   /// If `true`, this screen is set to No Delay Mode. If `false`, this screen is set
   /// to Delay Mode. The initial state is `false`.
-  set noDelay(bool value) => wrap('noDelay=', () => defaultLibrary.nodelay(_native, value));
+  set noDelay(bool value) =>
+      wrap('noDelay=', () => defaultLibrary.nodelay(_native, value));
 
   /// Whether Timeout Mode or No Timeout Mode is in effect for the screen associated with
   /// this window.
@@ -1509,7 +1576,8 @@ class Window implements Finalizable {
   /// set to Timeout Mode.
   ///
   /// The initial state is `false`.
-  set noTimeout(bool value) => wrap('noTimeout=', () => defaultLibrary.notimeout(_native, value));
+  set noTimeout(bool value) =>
+      wrap('noTimeout=', () => defaultLibrary.notimeout(_native, value));
 
   /// Set blocking or non-blocking read for this window based on the value of [delay]:
   ///
@@ -1521,14 +1589,16 @@ class Window implements Finalizable {
   /// - delay > 0:
   ///   Any Curses input function blocks for delay milliseconds and fails if there is still no
   ///   input.
-  set timeout(Duration delay) => defaultLibrary.wtimeout(_native, delay.inMilliseconds);
+  set timeout(Duration delay) =>
+      defaultLibrary.wtimeout(_native, delay.inMilliseconds);
 
   /// Determines whether all ancestors of this window are implicitly touched whenever there is a
   /// change in this window.
   ///
   /// If `true`, such implicit touching occurs. If `false`, such implicit touching
   /// does not occur. The initial state is `false`.
-  set sync(bool value) => wrap('sync=', () => defaultLibrary.syncok(_native, value));
+  set sync(bool value) =>
+      wrap('sync=', () => defaultLibrary.syncok(_native, value));
 
   /// Add information to this window at the current or specified position, and then advance the
   /// cursor.
@@ -1543,7 +1613,8 @@ class Window implements Finalizable {
   ///   and the rendition specified by [ch] is ignored.
   void addChar(Char ch, {Position? at}) {
     if (at != null) {
-      wrap('addChar', () => defaultLibrary.mvwadd_wch(_native, at.y, at.x, ch._native));
+      wrap('addChar',
+          () => defaultLibrary.mvwadd_wch(_native, at.y, at.x, ch._native));
     } else {
       wrap('addChar', () => defaultLibrary.wadd_wch(_native, ch._native));
     }
@@ -1557,12 +1628,14 @@ class Window implements Finalizable {
   ///
   /// This function copies at most [count] items, but no more than will fit on the current line. If [count]
   /// is `-1` then the whole string is copied, to the maximum number that fit on the current line.
-  void addChars(List<Char> chars, {int count = -1, Position? at}) => wrap<int>('addChars', () {
+  void addChars(List<Char> chars, {int count = -1, Position? at}) =>
+      wrap<int>('addChars', () {
         final nativeChars = chars.toNativeCharArray();
         final int ret;
 
         if (at != null) {
-          ret = defaultLibrary.mvwadd_wchnstr(_native, at.y, at.x, nativeChars, count);
+          ret = defaultLibrary.mvwadd_wchnstr(
+              _native, at.y, at.x, nativeChars, count);
         } else {
           ret = defaultLibrary.wadd_wchnstr(_native, nativeChars, count);
         }
@@ -1580,12 +1653,14 @@ class Window implements Finalizable {
   ///
   /// This function writes at most [count] characters. If [count] is `-1`, then the entire
   /// will be added.
-  void addString(String str, {int count = -1, Position? at}) => wrap<int>('addString', () {
+  void addString(String str, {int count = -1, Position? at}) =>
+      wrap<int>('addString', () {
         final nativeChars = str.toNativeWChars();
 
         final int ret;
         if (at != null) {
-          ret = defaultLibrary.mvwaddnwstr(_native, at.y, at.x, nativeChars, count);
+          ret = defaultLibrary.mvwaddnwstr(
+              _native, at.y, at.x, nativeChars, count);
         } else {
           ret = defaultLibrary.waddnwstr(_native, nativeChars, count);
         }
@@ -1596,20 +1671,20 @@ class Window implements Finalizable {
       });
 
   /// Turn off [attributes] in this window without affecting any others.
-  void disableAttributes(Attributes attributes) => wrap(
-      'disableAttributes', () => defaultLibrary.wattr_off(_native, attributes._value, nullptr));
+  void disableAttributes(Attributes attributes) => wrap('disableAttributes',
+      () => defaultLibrary.wattr_off(_native, attributes._value, nullptr));
 
   /// Turn on [attributes] in this window without affecting any others.
-  void enableAttributes(Attributes attributes) =>
-      wrap('enableAttributes', () => defaultLibrary.wattr_on(_native, attributes._value, nullptr));
+  void enableAttributes(Attributes attributes) => wrap('enableAttributes',
+      () => defaultLibrary.wattr_on(_native, attributes._value, nullptr));
 
   /// Set the attributes of this window rendition to [attributes].
   ///
   /// If [colorPair] is specified, also set the color pair.
   void setAttributes(Attributes attributes, [ColorPair? colorPair]) => wrap(
       'setAttributes',
-      () => defaultLibrary.wattr_set(
-          _native, attributes._value, colorPair?._value ?? this.colorPair._value, nullptr));
+      () => defaultLibrary.wattr_set(_native, attributes._value,
+          colorPair?._value ?? this.colorPair._value, nullptr));
 
   /// Draw a border around the edges of this window.
   ///
@@ -1663,13 +1738,13 @@ class Window implements Finalizable {
     if (at != null) {
       wrap(
           'changeAttributes',
-          () => defaultLibrary.mvwchgat(
-              _native, at.y, at.x, count, attributes._value, colorPair._value, nullptr));
+          () => defaultLibrary.mvwchgat(_native, at.y, at.x, count,
+              attributes._value, colorPair._value, nullptr));
     } else {
       wrap(
           'changeAttributes',
-          () =>
-              defaultLibrary.wchgat(_native, count, attributes._value, colorPair._value, nullptr));
+          () => defaultLibrary.wchgat(
+              _native, count, attributes._value, colorPair._value, nullptr));
     }
   }
 
@@ -1683,8 +1758,8 @@ class Window implements Finalizable {
   /// line. Only characters in the window are scrolled. If a software scrolling region is set and
   /// [allowScroll] is not enabled, an attempt to move off the last line of the margin does not
   /// reposition any lines in the scrolling region.
-  void setScrollRegion(int top, int bottom) =>
-      wrap('setScrollRegion', () => defaultLibrary.wsetscrreg(_native, top, bottom));
+  void setScrollRegion(int top, int bottom) => wrap(
+      'setScrollRegion', () => defaultLibrary.wsetscrreg(_native, top, bottom));
 
   /// Clear every position in this window.
   ///
@@ -1700,12 +1775,14 @@ class Window implements Finalizable {
   /// cursor to the end of the line, inclusive.
   ///
   /// This function does not update the cursor.
-  void clearToBottom() => wrap('clearToBottom', () => defaultLibrary.wclrtobot(_native));
+  void clearToBottom() =>
+      wrap('clearToBottom', () => defaultLibrary.wclrtobot(_native));
 
   /// Erase the current line from the cursor to the end of the line, inclusive, in this window.
   ///
   /// This function does not update the cursor.
-  void clearToEol() => wrap('clearToEol', () => defaultLibrary.wclrtoeol(_native));
+  void clearToEol() =>
+      wrap('clearToEol', () => defaultLibrary.wclrtoeol(_native));
 
   /// Copys a region of this window into [other].
   ///
@@ -1750,7 +1827,8 @@ class Window implements Finalizable {
   /// line one line toward the cursor.
   ///
   /// The last line of this window is cleared. The cursor position does not change.
-  void deleteLine() => wrap('deleteLine', () => defaultLibrary.wdeleteln(_native));
+  void deleteLine() =>
+      wrap('deleteLine', () => defaultLibrary.wdeleteln(_native));
 
   /// Refresh this window.
   ///
@@ -1759,10 +1837,12 @@ class Window implements Finalizable {
   void refresh() => wrap('refresh', () => defaultLibrary.wrefresh(_native));
 
   /// Determines which parts of the terminal may need updating.
-  void outRefresh() => wrap('outRefresh', () => defaultLibrary.wnoutrefresh(_native));
+  void outRefresh() =>
+      wrap('outRefresh', () => defaultLibrary.wnoutrefresh(_native));
 
   /// Creates a duplicate of this window.
-  Window duplicate() => Window._fromPointer(wrap('duplicate', () => defaultLibrary.dupwin(_native)))
+  Window duplicate() => Window._fromPointer(
+      wrap('duplicate', () => defaultLibrary.dupwin(_native)))
     .._attachFinalizer();
 
   /// Equivalent to a call to [addChar] followed by a call to [refresh].
@@ -1853,10 +1933,13 @@ class Window implements Finalizable {
   /// This function draws a line proceeding toward the last column of the same line.
   void horizontalLine(Char char, int n, {Position? at}) {
     if (at != null) {
-      wrap('horizontalLine',
-          () => defaultLibrary.mvwhline_set(_native, at.y, at.x, char._native, n));
+      wrap(
+          'horizontalLine',
+          () => defaultLibrary.mvwhline_set(
+              _native, at.y, at.x, char._native, n));
     } else {
-      wrap('horizontalLine', () => defaultLibrary.whline_set(_native, char._native, n));
+      wrap('horizontalLine',
+          () => defaultLibrary.whline_set(_native, char._native, n));
     }
   }
 
@@ -1869,9 +1952,13 @@ class Window implements Finalizable {
   /// This function draws a line proceeding toward the last line of the window.
   void verticalLine(Char char, int n, {Position? at}) {
     if (at != null) {
-      wrap('verticalLine', () => defaultLibrary.mvwvline_set(_native, at.y, at.x, char._native, n));
+      wrap(
+          'verticalLine',
+          () => defaultLibrary.mvwvline_set(
+              _native, at.y, at.x, char._native, n));
     } else {
-      wrap('verticalLine', () => defaultLibrary.wvline_set(_native, char._native, n));
+      wrap('verticalLine',
+          () => defaultLibrary.wvline_set(_native, char._native, n));
     }
   }
 
@@ -1959,7 +2046,8 @@ class Window implements Finalizable {
   /// unspecified.
   void insertChar(Char char, {Position? at}) {
     if (at != null) {
-      wrap('insertChar', () => defaultLibrary.mvwins_wch(_native, at.y, at.x, char._native));
+      wrap('insertChar',
+          () => defaultLibrary.mvwins_wch(_native, at.y, at.x, char._native));
     } else {
       wrap('insertChar', () => defaultLibrary.wins_wch(_native, char._native));
     }
@@ -1974,14 +2062,16 @@ class Window implements Finalizable {
   ///   cleared.
   ///
   /// The current cursor position remains the same.
-  void insertLines(int n) => wrap('insertLines', () => defaultLibrary.winsdelln(_native, n));
+  void insertLines(int n) =>
+      wrap('insertLines', () => defaultLibrary.winsdelln(_native, n));
 
   /// Insert a blank line before the current line in this window.
   ///
   /// The bottom line is no longer displayed.
   ///
   /// The cursor position does not change.
-  void insertLine() => wrap('insertLine', () => defaultLibrary.winsertln(_native));
+  void insertLine() =>
+      wrap('insertLine', () => defaultLibrary.winsertln(_native));
 
   /// Insert a string (as many characters as will fit on the line) before the current position in
   /// this window.
@@ -1991,12 +2081,14 @@ class Window implements Finalizable {
   ///
   /// This function inserts at most [count] characters. If [count] is less than `1`, the entire
   /// string is inserted.
-  void insertString(String s, {int count = -1, Position? at}) => wrap<int>('insertString', () {
+  void insertString(String s, {int count = -1, Position? at}) =>
+      wrap<int>('insertString', () {
         final ptr = s.toNativeWChars();
 
         final int ret;
         if (at != null) {
-          ret = defaultLibrary.mvwins_nwstr(_native, at.y, at.x, ptr.cast(), count);
+          ret = defaultLibrary.mvwins_nwstr(
+              _native, at.y, at.x, ptr.cast(), count);
         } else {
           ret = defaultLibrary.wins_nwstr(_native, ptr.cast(), count);
         }
@@ -2019,8 +2111,8 @@ class Window implements Finalizable {
   /// If [changed] is `true`, touches [count] lines in this window, starting at line [start]. If
   /// [changed] is `false`, marks such lines as unchanged since the last refresh operation.
   // TODO: Better name
-  void touchLines(int start, int count, bool changed) =>
-      wrap('touchLines', () => defaultLibrary.wtouchln(_native, start, count, changed ? 1 : 0));
+  void touchLines(int start, int count, bool changed) => wrap('touchLines',
+      () => defaultLibrary.wtouchln(_native, start, count, changed ? 1 : 0));
 
   /// Move the cursor associated with this window to [position] relative to the window's origin.
   ///
@@ -2041,15 +2133,17 @@ class Window implements Finalizable {
   ///
   /// That is, [copyFrom] defines a coordinate transformation from each position in the mapped area
   /// to a corresponding position (same y, x offset from the origin) in this window.
-  void copyFrom(Position parentPosition) =>
-      wrap('copyFrom', () => defaultLibrary.mvderwin(_native, parentPosition.y, parentPosition.x));
+  void copyFrom(Position parentPosition) => wrap(
+      'copyFrom',
+      () =>
+          defaultLibrary.mvderwin(_native, parentPosition.y, parentPosition.x));
 
   /// Moves this window so that its origin is at [position].
   ///
   /// If the move would cause any portion of this window to extend past any edge of the screen, this
   /// function fails and the window is not moved.
-  void moveWindow(Position position) =>
-      wrap('moveWindow', () => defaultLibrary.mvwin(_native, position.y, position.x));
+  void moveWindow(Position position) => wrap('moveWindow',
+      () => defaultLibrary.mvwin(_native, position.y, position.x));
 
   /// Analogous to [refresh] except that this function relates to pads instead of windows.
   ///
@@ -2067,8 +2161,10 @@ class Window implements Finalizable {
     required Position start,
     required Position end,
   }) =>
-      wrap('refreshPad',
-          () => defaultLibrary.prefresh(_native, inPad.y, inPad.x, start.y, start.x, end.y, end.x));
+      wrap(
+          'refreshPad',
+          () => defaultLibrary.prefresh(
+              _native, inPad.y, inPad.x, start.y, start.x, end.y, end.x));
 
   /// Analogous to [outRefresh] except that this function relates to pads instead of windows.
   ///
@@ -2127,15 +2223,15 @@ class Window implements Finalizable {
   /// character then all the column positions will be replaced with the background character and
   /// rendition before the overlay is done. If the default background character is a multi-column
   /// character when this occurs, then these functions fail.
-  void overwrite(Window source) =>
-      wrap('overwrite', () => defaultLibrary.overwrite(source._native, _native));
+  void overwrite(Window source) => wrap(
+      'overwrite', () => defaultLibrary.overwrite(source._native, _native));
 
   /// Output one character to a pad and immediately refresh the pad.
   ///
   /// This is equivalent to a call to [addChar] followed by a call to [refreshPad]. The last
   /// location of the pad on the screen is reused for the arguments to [refreshPad].
-  void padEchoChar(Char char) =>
-      wrap('padEchoChar', () => defaultLibrary.pecho_wchar(_native, char._native));
+  void padEchoChar(Char char) => wrap(
+      'padEchoChar', () => defaultLibrary.pecho_wchar(_native, char._native));
 
   /// Inform the implementation that some or all of the information physically displayed for this
   /// window may have been corrupted.
@@ -2153,8 +2249,8 @@ class Window implements Finalizable {
   ///
   /// This function prevents the next refresh operation on this window from performing
   /// optimisation based on assumptions about what is physically displayed there.
-  void redrawLines(int start, int count) =>
-      wrap('redrawLines', () => defaultLibrary.wredrawln(_native, start, count));
+  void redrawLines(int start, int count) => wrap(
+      'redrawLines', () => defaultLibrary.wredrawln(_native, start, count));
 
   /// Scroll this window.
   ///
@@ -2164,7 +2260,8 @@ class Window implements Finalizable {
   /// This function does not change the cursor position. If scrolling is disabled for this window,
   /// this function has no effect. The interaction of these functions with [setScrollRegion] is
   /// currently unspecified.
-  void scroll([int n = 1]) => wrap('scroll', () => defaultLibrary.wscrl(_native, n));
+  void scroll([int n = 1]) =>
+      wrap('scroll', () => defaultLibrary.wscrl(_native, n));
 
   /// Turn off all attributes of this window.
   void standEnd() => wrap('standEnd', () => defaultLibrary.wstandend(_native));
@@ -2205,13 +2302,15 @@ extension NativeColors on Colors {
 extension NativeCursorVisibility on CursorVisibility {
   int get value => _value;
 
-  static CursorVisibility fromValue(int value) => CursorVisibility._fromValue(value);
+  static CursorVisibility fromValue(int value) =>
+      CursorVisibility._fromValue(value);
 }
 
 extension NativeChar on Char {
   Pointer<bindings.cchar_t> get native => _native;
 
-  static Char fromPointer(Pointer<bindings.cchar_t> ptr) => Char._fromPointer(ptr);
+  static Char fromPointer(Pointer<bindings.cchar_t> ptr) =>
+      Char._fromPointer(ptr);
 
   static NativeFinalizer get finalizer => Char._finalizer;
 
@@ -2236,7 +2335,8 @@ extension NativeScreen on Screen {
 extension NativeWindow on Window {
   Pointer<bindings.WINDOW> get native => _native;
 
-  static Window fromPointer(Pointer<bindings.WINDOW> ptr) => Window._fromPointer(ptr);
+  static Window fromPointer(Pointer<bindings.WINDOW> ptr) =>
+      Window._fromPointer(ptr);
 
   static NativeFinalizer get finalizer => Window._finalizer;
 
